@@ -1,0 +1,105 @@
+fio-3.36-103-gb140f
+fio [options] [job options] <job file(s)>
+  --debug=options	Enable debug logging. May be one/more of:
+			process,file,io,mem,blktrace,verify,random,parse,
+			diskutil,job,mutex,profile,time,net,rate,compress,
+			steadystate,helperthread,zbd
+  --parse-only		Parse options only, don't start any IO
+  --merge-blktrace-only	Merge blktraces only, don't start any IO
+  --output		Write output to file
+  --bandwidth-log	Generate aggregate bandwidth logs
+  --minimal		Minimal (terse) output
+  --output-format=type	Output format (terse,json,json+,normal)
+  --terse-version=type	Set terse version output format (default 3, or 2 or 4 or 5)
+  --version		Print version info and exit
+  --help		Print this page
+  --cpuclock-test	Perform test/validation of CPU clock
+  --crctest=[type]	Test speed of checksum functions
+  --cmdhelp=cmd		Print command help, "all" for all of them
+  --enghelp=engine	Print ioengine help, or list available ioengines
+  --enghelp=engine,cmd	Print help for an ioengine cmd
+  --showcmd		Turn a job file into command line options
+  --eta=when		When ETA estimate should be printed
+            		May be "always", "never" or "auto"
+  --eta-newline=t	Force a new line for every 't' period passed
+  --status-interval=t	Force full status dump every 't' period passed
+  --readonly		Turn on safety read-only checks, preventing writes
+  --section=name	Only run specified section in job file, multiple sections can be specified
+  --alloc-size=kb	Set smalloc pool to this size in kb (def 16384)
+  --warnings-fatal	Fio parser warnings are fatal
+  --max-jobs=nr		Maximum number of threads/processes to support
+  --server=args		Start a backend fio server
+  --daemonize=pidfile	Background fio server, write pid to file
+  --client=hostname	Talk to remote backend(s) fio server at hostname
+  --remote-config=file	Tell fio server to load this local job file
+  --idle-prof=option	Report cpu idleness on a system or percpu basis
+			(option=system,percpu) or run unit work
+			calibration only (option=calibrate)
+  --inflate-log=log	Inflate and output compressed log
+  --trigger-file=file	Execute trigger cmd when file exists
+  --trigger-timeout=t	Execute trigger at this time
+  --trigger=cmd		Set this command as local trigger
+  --trigger-remote=cmd	Set this command as remote trigger
+  --aux-path=path	Use this path for fio state generated files
+
+Fio was written by Jens Axboe <axboe@kernel.dk>
+write: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.36-103-gb140f
+Starting 4 processes
+
+write: (groupid=0, jobs=4): err= 0: pid=695711: Tue Mar 12 05:24:21 2024
+  write: IOPS=162k, BW=633MiB/s (664MB/s)(4308MiB/6806msec); 0 zone resets
+    clat (usec): min=12, max=252, avg=23.73, stdev= 3.59
+     lat (usec): min=12, max=252, avg=23.81, stdev= 3.60
+    clat percentiles (nsec):
+     |  1.00th=[16768],  5.00th=[19072], 10.00th=[19840], 20.00th=[20864],
+     | 30.00th=[21888], 40.00th=[22656], 50.00th=[23424], 60.00th=[24192],
+     | 70.00th=[25216], 80.00th=[26240], 90.00th=[28032], 95.00th=[29568],
+     | 99.00th=[33024], 99.50th=[35072], 99.90th=[45824], 99.95th=[54016],
+     | 99.99th=[83456]
+   bw (  KiB/s): min=630904, max=680568, per=100.00%, avg=652898.46, stdev=3853.19, samples=52
+   iops        : min=157726, max=170142, avg=163224.62, stdev=963.30, samples=52
+  lat (usec)   : 20=12.40%, 50=87.53%, 100=0.06%, 250=0.01%, 500=0.01%
+  cpu          : usr=6.53%, sys=20.43%, ctx=1102902, majf=0, minf=57
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1102847,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=633MiB/s (664MB/s), 633MiB/s-633MiB/s (664MB/s-664MB/s), io=4308MiB (4517MB), run=6806-6806msec
+
+Disk stats (read/write):
+  nvme0n2: ios=0/1082740, sectors=0/8661920, merge=0/0, ticks=0/19748, in_queue=19748, util=98.63%
+write: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.36-103-gb140f
+Starting 4 processes
+
+write: (groupid=0, jobs=4): err= 0: pid=714047: Wed Mar 13 14:35:53 2024
+  write: IOPS=162k, BW=634MiB/s (665MB/s)(4308MiB/6791msec); 0 zone resets
+    clat (usec): min=11, max=272, avg=23.63, stdev= 3.69
+     lat (usec): min=11, max=272, avg=23.72, stdev= 3.71
+    clat percentiles (nsec):
+     |  1.00th=[16320],  5.00th=[18816], 10.00th=[19584], 20.00th=[20864],
+     | 30.00th=[21888], 40.00th=[22656], 50.00th=[23424], 60.00th=[24192],
+     | 70.00th=[24960], 80.00th=[26240], 90.00th=[28032], 95.00th=[29568],
+     | 99.00th=[33024], 99.50th=[35072], 99.90th=[46336], 99.95th=[53504],
+     | 99.99th=[83456]
+   bw (  KiB/s): min=630528, max=688304, per=100.00%, avg=653824.62, stdev=3920.63, samples=52
+   iops        : min=157632, max=172076, avg=163456.00, stdev=980.18, samples=52
+  lat (usec)   : 20=13.63%, 50=86.30%, 100=0.06%, 250=0.01%, 500=0.01%
+  cpu          : usr=6.49%, sys=20.01%, ctx=1102949, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1102848,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=634MiB/s (665MB/s), 634MiB/s-634MiB/s (665MB/s-665MB/s), io=4308MiB (4517MB), run=6791-6791msec
+
+Disk stats (read/write):
+  nvme0n2: ios=0/1085368, sectors=0/8682944, merge=0/0, ticks=0/19837, in_queue=19837, util=98.62%

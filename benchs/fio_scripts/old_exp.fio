@@ -1,0 +1,17 @@
+
+[global]
+bs=128k
+zonemode=zbd
+direct=1
+ioengine=posixaio
+iodepth=16
+filename=/dev/nvme0n2
+group_reporting=1
+offset_increment=8z
+size=8z
+job_max_open_zones=1
+
+[seq-write-3]
+rw=write
+#thread=1
+numjobs=6
